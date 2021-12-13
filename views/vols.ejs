@@ -1,0 +1,155 @@
+<%- include('partials/header'); -%>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-4">
+        <h6 id="titleBrand" class="m-0 font-weight-bold text-primary">Plan</h6>
+    </div>
+    <div class="card-body">
+
+
+        <button class="btn btn-success btn-sm" id="button_ADD_Type" style="margin-bottom: 30px; margin-top:20px"
+            type="button" data-toggle="modal" data-target="#add_new_Type" data-placement="top">
+            <i class="fa fa-plus"></i>
+            Add new vols
+        </button>
+
+
+        <table class="table">
+
+        </table>
+    </div>
+
+    <!-- Add New Type Modal -->
+
+    <div class="modal fade" id="add_new_Type" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Vols</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/saveVols" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="depart">Depart</label>
+                            <select name="depart" id="depart" class="custom-select">
+                                <% if (destination) { %>
+                                <% for (var i = 0; i < destination.length; i++) { %>
+                                <option value=<%= destination[i].id %>> <%= destination[i].location %></option>
+                                <% } %>
+                                <% } %>
+                            </select>
+                            <label for="arrive">Arriver</label>
+                            <select name="arrive" id="arrive" class="custom-select">
+                                <% if (destination) { %>
+                                <% for (var i = 0; i < destination.length; i++) { %>
+                                <option value=<%= destination[i].id %>> <%= destination[i].location %></option>
+                                <% } %>
+                                <% } %>
+                            </select>
+
+                            <label for="heur">Heur depart</label>
+                            <input type="text" id="heur_depart" class="form-control" placeholder="heur"
+                                name="heur_depart">
+
+                            <label for="color">heur d'arriver</label>
+                            <input type="text" id="heur_arrive" class="form-control" placeholder="heur"
+                                name="heur_arrive">
+
+                            <label for="model">Date depart</label>
+                            <input type="date" id="date" class="form-control" name="date">
+
+                            <label for="model">Date d'arriver</label>
+                            <input type="date" id="datearriver" class="form-control" name="datearriver">
+                            <label for="model">Capacite</label>
+                            <input type="number" id="capacite" class="form-control" name="capacite">
+
+
+
+                            <div id="For_ADD" class="modal-footer">
+                                <button type="submit" style="width:100%" id="submit"
+                                    class="btn btn-info">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Type Modal -->
+
+    <!-- foooterr -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; SafiAir Website by ED-DOUJ Ouissal 2021</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Se deconnecter?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Sur ? Click sur Se deconnecter
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Quitter</button>
+                <button class="btn btn-primary"> Se deconnecter</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function getDay() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0");
+        var yyyy = today.getFullYear();
+        today = yyyy + "-" + mm + "-" + dd;
+        return today;
+    }
+
+    Today_Date = getDay();
+
+    const date = document.getElementById('date');
+    const datea = document.getElementById('datearriver');
+
+    date.min = Today_Date;
+    date.value = Today_Date;
+    datea.min = Today_Date;
+    datea.value = Today_Date;
+</script>
+<!-- INCLUDE JS SCRIPTS -->
+<script src="../Admin/js/main.js"></script>
+<script src="../Admin/js/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../Admin/js/bootstrap.min.js"></script>
+<script src="../Admin/js/sb-admin-2.min.js"></script>
+<%- include('partials/footer'); -%>

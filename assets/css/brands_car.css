@@ -1,0 +1,35 @@
+/* Style Car Brands  */
+
+#titleBrand {
+    color: #007bff !important;
+  }
+  
+  #button_ADD_Brand{
+  color: #fff;
+   border: none;
+    background:#007bff;
+  }
+ 
+  
+ 
+  .form-control {
+    border: 1px solid #000000;
+  }
+  .modal-title {
+    color: #00044E;
+  }
+  .btnADDbrand {
+   color: #00044E;
+  }
+  .mythBrnd{
+       color: #222324;
+  text-align: center;
+  }
+  #deleteForBrands{
+    cursor: pointer;
+  background: none;
+  border: none;
+  }
+  #btnADDbrand{
+    background-color: #007bff !important;
+  }
