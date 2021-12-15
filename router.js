@@ -11,37 +11,43 @@ router.get('/aeroport', (req, res) => {
     res.render('aeroport.ejs')
 
 })
+router.get('/reservation', (req, res) => {
+    res.render('reservation.ejs')
+
+})
+
+router.get('/ticket', (req, res) => {
+    res.render('ticket.ejs')
+
+})
 
 
 const crud = require('./controllers/crud');
-// insert Destination depart
 router.post('/Destination', crud.saveDestination);
 
-// Remplir select 
 router.get('/home', crud.getDestination);
 router.post('/saveVols', crud.saveVols);
 router.get('/vols', crud.destinationVols);
 
-
-// Read Reservation
 router.get('/admin', crud.getReservation);
 
+router.get('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    connexion.query('DELETE FROM reservation WHERE  id_res =?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.redirect('/admin');
+        }
+    })
+})
 
 
-// Get plan
-router.get('/search', crud.getPlan);
-// router.get('/dd', function (req, res) {
-//     var sql = "SELECT * FROM vols WHERE fk_depart = 3 && fk_arrive = 2  && date_depart = '2021-12-12' && capacite<20"
+router.post('/search', crud.getPlan);
+router.post('/send', crud.sedEmaill);
 
-//     connexion.query(sql, (error, results) => {
-//         if (error) {
-//             console.log(error);
-//         } else {
-//             console.log(results);
-//         }
-//     })
+router.post('/saveReservation', crud.saveReservation);
 
-// });
 
 
 

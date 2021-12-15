@@ -47,7 +47,7 @@
             <button style="background-color: #004487; width: 175px;" class="btn btnn">About Us</button>
         </div>
     </div>
-    <form action="/search" method="get">
+    <form action="/search" method="post">
         <div class="search-flight text-center">
             <select class="form-control" name="start" id="start">
                 <% if (destination) { %>
@@ -58,113 +58,201 @@
 
             </select>
             <select id="end" name="end" class="form-control">
-                <% if (destination) { %>
-                <% for (var i = 0; i < destination.length; i++) { %>
-                <option value=<%= destination[i].id %>> <%= destination[i].location %></option>
+                <% if (arrive) { %>
+                <% for (var i = 0; i < arrive.length; i++) { %>
+                <option value=<%= arrive[i].id_arrive %>> <%= arrive[i].location_arrive %></option>
                 <% } %>
                 <% } %>
             </select>
             <input type="date" id="datee" name="datee" class="form-control">
-            <!-- <input type="number" name="nombre" id="nombre" class="form-control" placeholder="nombre de personne"> -->
             <button type="submit" class="btn btn-primary btnnn">Search flight</button>
 
         </div>
     </form>
-    <!-- Result Search -->
-    <!-- <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div> -->
-    <!-- fin -->
 
-    <!-- <section class="about">
-        <div class="swiper aboutSwiper">
-            <div class="swiper-wrapper">
-                <div class="cardd">
-                    <img src="/images/b.png" alt="#">
-                    <div class="cardd-text">
-                        <h1>Flight simulator</h1>
-                        <p> Lorem ipsum, dolor sit amtore optiLor
-                            em ipsum, dolor sit amtore optiLorem ipsum, dolor sit
-                            amtore optLorem ipsum, dolor sit amtore optiio!
-                        </p>
-                        <a href="#" class="btn btn-secondary">Learn More</a>
-                    </div>
+
+
+    <div class="service">
+        <div class="container">
+
+            <div class="row">
+                <div id="hotel" class="col-md-6 col-lg-6 col-sm-12">
+                    <img width="75%" src="/images/ff.png" alt="">
+                </div>
+
+
+                <div class="col-md-6 col-lg-6 col-sm-12">
+
+                    <h6>Our Service</h6>
+                    <h1>Safi Air </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo officia ut atque nostrum suscipit
+                        magnam,
+                        nemo aperiam debitis esse voluptatem inventore numquam ad, tempora incidunt saepe architecto
+                        nisi a dolore!
+                    </p>
+                    <button class="btn btn-primary btn-sm btne" type="button"> Read More</button>
+
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="cardSection">
+        <!-- Products -->
+        <div class="Products pt-1 pb-5">
+            <h1 class="text-center"> Our <span> Extras</span></h1>
+            <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore ullam similique at
+                dolore pariat</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-12">
 
-        </div>
-        </div>
-    </section> -->
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="/images/assurance.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Assurance</h5>
+                                <p class="card-text"> <span class="dot"></span> assurance <br> <span class="dot"></span>
+                                    cas de panne <br> There are many variations of pas passages of Lorem Ipsum...</p>
+                                <a href="#" class="btn btn-primary">Plus details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
 
-    <section class="container">
-        <div class="section first">
-            <div class="cont_title">
-                <!--<div class="letter-container">
-              <p class="lettering">Alaska, USA</p>
-            </div>-->
-                <h1>kenai<br>fjords</h1>
-                <h3>National Park</h3>
-            </div>
-            <div class="cont_desc">
-                <p>Rappel into a crevasse, kayak through icebergs, and watch a glacier recede.</p>
-            </div>
-        </div>
-        <div class="section">
-            <div class="cont_title">
-                <h1>Hawai'i<br>Volcanoes</h1>
-                <h3>National Park</h3>
-            </div>
-            <div class="cont_desc">
-                <p>Rappel into a crevasse, kayak through icebergs, and watch a glacier recede.</p>
-            </div>
-        </div>
-        <div class="section">
-            <div class="cont_title">
-                <h1>Carlsbad<br>Caverns</h1>
-                <h3>National Park</h3>
-            </div>
-            <div class="cont_desc">
-                <p>Rappel into a crevasse, kayak through icebergs, and watch a glacier recede.</p>
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="/images/v.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">hotels</h5>
+                                <p class="card-text"><span class="dot"></span> Climatisé <br> <span class="dot"></span>
+                                    Lit Confortable <br> There are many variations of pas passages of Lorem Ipsum...</p>
+                                <a href="#" class="btn btn-primary">Plus details</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="/images/food.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">repas</h5>
+                                <p class="card-text"> <span class="dot"></span>plat <br> <span class="dot"></span>drink
+                                    <br> There are many variations of pas ...</p>
+                                <a href="#" class="btn btn-primary">Plus details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-        <div class="section">
-            <div class="cont_title">
-                <h1>Bryce<br>Canyon</h1>
-                <h3>National Park</h3>
-            </div>
-            <div class="cont_desc">
-                <p>Rappel into a crevasse, kayak through icebergs, and watch a glacier recede.</p>
-            </div>
+    </div>
+
+    <!-- xx -->
+    <div class="Products  pb-5">
+        <h1 class="text-center"> Our <span> Extras</span></h1>
+        <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore ullam similique at
+            dolore pariat</p>
+        <div class="container">
+            <form action="/send" method="post">
+                <button type="submit">send mail</button>
+            </form>
         </div>
-        <div class="section">
-            <div class="cont_title">
-                <h1>Dry<br>Tortugas</h1>
-                <h3>National Park</h3>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+
+    <footer style="background-color: #004487; padding-top: 4%;" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <!-- Contact Info-->
+                    <section class="widget widget-light-skin">
+                        <h3 class="widget-title">Get In Touch With Us</h3>
+                        <p class="text-white">Phone: 00 33 169 7720</p>
+                        <ul class="list-unstyled text-sm text-white">
+                            <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
+                            <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
+                        </ul>
+                        <p><a class="navi-link-light text-white" href="#">safiAir@plan.com</a></p><a
+                            class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i
+                                class="socicon-facebook"></i></a><a
+                            class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i
+                                class="socicon-twitter"></i></a><a
+                            class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i
+                                class="socicon-instagram"></i></a><a
+                            class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i
+                                class="socicon-googleplus"></i></a>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Mobile App Buttons-->
+                    <section class="widget widget-light-skin">
+                        <h3 class="widget-title">Our Mobile App</h3><a class="market-button apple-button mb-light-skin"
+                            href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App
+                                Store</span></a><a class="market-button google-button mb-light-skin" href="#"><span
+                                class="mb-subtitle">Download on the</span><span class="mb-title">Google
+                                Play</span></a><a class="market-button windows-button mb-light-skin" href="#"><span
+                                class="mb-subtitle">Download on the</span><span class="mb-title">Windows
+                                Store</span></a>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- About Us-->
+                    <section class="widget widget-links widget-light-skin">
+                        <h3 class="widget-title">About Us</h3>
+                        <ul>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">About Unishop</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Our Blog</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Account / Shipping Info-->
+                    <section class="widget widget-links widget-light-skin">
+                        <h3 class="widget-title">Account &amp; Shipping Info</h3>
+                        <ul>
+                            <li><a href="#">Your Account</a></li>
+                            <li><a href="#">Shipping Rates &amp; Policies</a></li>
+                            <li><a href="#">Refunds &amp; Replacements</a></li>
+                            <li><a href="#">Taxes</a></li>
+                            <li><a href="#">Delivery Info</a></li>
+                            <li><a href="#">Affiliate Program</a></li>
+                        </ul>
+                    </section>
+                </div>
             </div>
-            <div class="cont_desc">
-                <p>Rappel into a crevasse, kayak through icebergs, and watch a glacier recede.</p>
-            </div>
+            <hr class="hr-light mt-2 margin-bottom-2x">
+
+            <!-- Copyright-->
+            <p class="footer-copyright">&copy; All rights reserved.</a></p>
         </div>
-    </section>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
-        // var nav = document.querySelector('nav');
-        // window.addEventListener('scroll', function () {
-        //     if (window.pageYOffset > 200) {
-        //         nav.classList.add('bg-dark', 'shadow');
-        //     } else {
-        //         nav.classList.remove('bg-dark', 'shadow');
-        //     }
-        // });
+        var nav = document.querySelector('nav');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 200) {
+                nav.classList.add('bg-dark', 'shadow');
+            } else {
+                nav.classList.remove('bg-dark', 'shadow');
+            }
+        });
 
         function getDay() {
             var today = new Date();

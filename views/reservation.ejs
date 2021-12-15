@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Acceuil</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+        <div class="container">
+            <a href="#" class="navbar-brand">SAFI-AIR</a>
+            <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
+                aria-controls="navbarNav" aria-expanded="false" aria-lable="Toggle Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto"></div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">About</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Service</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Campany</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Image -->
+    <div style="padding-left: 5%;" class="banner-image w-100 vh-100 d-flex flex-column justify-content-center ">
+        <h1>ARE YOU READY FOR YOUR NEXT <span> DESTINATION ?</span> </h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus minima at deserunt consectetur ipsum
+            facihitecto cum voluptatibus at, veritatis voluptas. Voluptatem?</p>
+        <div>
+            <button class="btn btnn">Read More</button>
+            <button style="background-color: #004487; width: 175px;" class="btn btnn">About Us</button>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="Products">
+        <h1 class="text-center"> We <span> Find</span></h1>
+        <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore ullam similique at
+            dolore
+            pariat</p>
+        <form action="">
+            <div class="container">
+
+                <div class="row">
+                    <% if (safiVols) { %>
+                    <% for (var i = 0; i < safiVols.length; i++) { %>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= safiVols[i].fk_depart %> To <%= safiVols[i].fk_arrive %>
+                                    <p class="card-text"> <span class="dot"></span> Capacité:<%= safiVols[i].capacite %>
+                                        <br> <span class="dot"></span>
+                                        date depart: <%= safiVols[i].date_depart.toLocaleDateString() %> <br>
+                                        <span class="dot"></span>
+                                        date d'arrive: <%= safiVols[i].date_arrive.toLocaleDateString() %> <br>
+                                        <span class="dot"></span>
+                                        heur depart: <%= safiVols[i].heur_depart %> <br>
+                                        <span class="dot"></span>
+                                        heur d'arrive: <%= safiVols[i].heur_arrive %> <br>
+                                        <span class="dot"></span>
+                                        prix: <%= safiVols[i].prix %> <br>
+                                        <span class="dot"></span>
+                                        escale: <%= safiVols[i].escale %> <br>
+
+                                    </p>
+                                    <br>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Reserver</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+    <form action="/saveReservation" method="post">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Insert your information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <% if (safiVols) { %>
+                        <% for (var i = 0; i < safiVols.length; i++) { %>
+                        <input name="voll" id="voll" type="hidden" value=<%= safiVols[i].id_vol %>></h5>
+                        <% } %>
+                        <% } %>
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prenom</label>
+                            <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prenom">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Tel</label>
+                            <input type="text" class="form-control" name="tel" id="tel" placeholder="0606060606">
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Nombre de place</label>
+                            <input type="number" class="form-control" name="NombrePlace" id="NombrePlace">
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="">Want extras?</label>
+
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                <% if (extras) { %>
+                                <% for (var i = 0; i < extras.length; i++) { %>
+                                <input type="checkbox" class="btn-check" value=<%= extras[i].id %> name='extraa'
+                                    id=<%= extras[i].extra %> autocomplete="off">
+                                <label class="btn btn-outline-primary" for=<%= extras[i].extra %>>
+                                    <%= extras[i].extra %></label>
+                                <% } %>
+                                <% } %>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <!-- pdf  -->
+
+    <div id="myPopup">
+
+
+
+    </div>
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+
+    <script type="text/javascript" src="/js/pdfmake.min.js"></script>
+
+    <script type="text/javascript" src="/js/html2canvas.min.js"></script>
+
+    <script>
+        function downloadDoc() {
+
+            html2canvas($("#myPopup")[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Table.pdf");
+                }
+            })
+
+
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

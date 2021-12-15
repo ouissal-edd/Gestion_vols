@@ -104,27 +104,28 @@
 
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>Name</th>
                         <th>Number</th>
                         <th>Email</th>
                         <th>Destination</th>
                         <th>Heur</th>
                         <th>date</th>
-                        <th>extras</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% if (data) { %>
                     <% for (var i = 0; i < data.length; i++) { %>
-                    <tr>
+                    <tr class="text-center">
                         <td><%= data[i].nom %></td>
                         <td><%= data[i].tel %></td>
                         <td><%= data[i].email %></td>
                         <td><%= data[i].location %> to <%= data[i].location %> </td>
                         <td><%= data[i].heur_depart %> to <%= data[i].heur_arrive %></td>
-                        <td><%= data[i].date_depart %> to <%= data[i].date_arrive %></td>
-                        <td><%= data[i].extra %> </td>
+                        <td><%= data[i].date_depart.toLocaleDateString() %> to
+                            <%= data[i].date_arrive.toLocaleDateString() %></td>
+                        <td> <a href="/delete/<%= data[i].id_res %>" class="btn btn-primary ">Delete</a> </td>
                     </tr>
                     <% } %>
                     <% } %>

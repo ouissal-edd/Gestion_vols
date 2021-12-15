@@ -45,9 +45,9 @@
                             </select>
                             <label for="arrive">Arriver</label>
                             <select name="arrive" id="arrive" class="custom-select">
-                                <% if (destination) { %>
-                                <% for (var i = 0; i < destination.length; i++) { %>
-                                <option value=<%= destination[i].id %>> <%= destination[i].location %></option>
+                                <% if (arrive) { %>
+                                <% for (var i = 0; i < arrive.length; i++) { %>
+                                <option value=<%= arrive[i].id_arrive %>> <%= arrive[i].location_arrive %></option>
                                 <% } %>
                                 <% } %>
                             </select>
@@ -67,6 +67,8 @@
                             <input type="date" id="datearriver" class="form-control" name="datearriver">
                             <label for="model">Capacite</label>
                             <input type="number" id="capacite" class="form-control" name="capacite">
+                            <label for="model">Prix</label>
+                            <input type="number" id="prix" class="form-control" name="prix">
 
 
 
@@ -81,7 +83,53 @@
         </div>
     </div>
 
-    <!-- Add New Type Modal -->
+    <!-- Show data flor vols -->
+
+
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-4">
+            <h6 id="titleReserv" class="m-0 font-weight-bold text-primary">Reservation</h6>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr class="text-center">
+                        <th>depart</th>
+                        <th>arrive</th>
+                        <th>capacite</th>
+                        <th>aeroport</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (vols) { %>
+                    <% for (var i = 0; i < vols.length; i++) { %>
+                    <tr class="text-center">
+                        <td>Le <%= vols[i].date_depart.toLocaleDateString() %> à <%= vols[i].heur_depart %> </td>
+                        <td> Le<%= vols[i].date_arrive.toLocaleDateString() %> à <%= vols[i].heur_arrive %> </td>
+                        <td><%= vols[i].capacite %></td>
+                        <td><%= vols[i].location %> to <%= vols[i].location_arrive %> </td>
+                        <td> <a href="/delete/<%= vols[i].id_vol %>" class="btn btn-primary ">Delete</a> </td>
+                    </tr>
+                    <% } %>
+                    <% } %>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
 
     <!-- foooterr -->
 

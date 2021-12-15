@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+// const mailer = require('express-mailer');
 
 // static files
 app.use(express.static('assets'));
@@ -11,7 +12,11 @@ app.use('/images', express.static(__dirname + 'assets/images'));
 app.use(express.urlencoded({
     extended: false
 }));
-
+app.locals.data = {
+    'nombrePlace': '',
+    'idVol': '',
+    'extrs': []
+};
 // Set views
 app.set('view engine', 'ejs');
 app.use('/', require('./router'))
